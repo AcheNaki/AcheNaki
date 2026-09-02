@@ -1,0 +1,721 @@
+[
+  {
+    "name": "Uttara",
+    "slug": "uttara",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Sector 1", "slug": "sector-1" },
+      { "name": "Sector 2", "slug": "sector-2" },
+      { "name": "Sector 3", "slug": "sector-3" },
+      { "name": "Sector 4", "slug": "sector-4" },
+      { "name": "Sector 5", "slug": "sector-5" },
+      { "name": "Sector 6", "slug": "sector-6" },
+      { "name": "Sector 7", "slug": "sector-7" },
+      { "name": "Sector 8", "slug": "sector-8" },
+      { "name": "Sector 9", "slug": "sector-9" },
+      { "name": "Sector 10", "slug": "sector-10" },
+      { "name": "Sector 11", "slug": "sector-11" },
+      { "name": "Sector 12", "slug": "sector-12" },
+      { "name": "Sector 13", "slug": "sector-13" },
+      { "name": "Sector 14", "slug": "sector-14" },
+      { "name": "Sector 15", "slug": "sector-15" },
+      { "name": "Sector 16", "slug": "sector-16" },
+      { "name": "Sector 17", "slug": "sector-17" },
+      { "name": "Sector 18", "slug": "sector-18" }
+    ]
+  },
+  {
+    "name": "Turag",
+    "slug": "turag",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Diabari", "slug": "diabari" },
+      { "name": "Kamarpara", "slug": "kamarpara" },
+      { "name": "Ranabhola", "slug": "ranabhola" },
+      { "name": "Nolvog", "slug": "nolvog" },
+      { "name": "Nishat Nagar", "slug": "nishat-nagar" },
+      { "name": "Dhaur", "slug": "dhaur" }
+    ]
+  },
+  {
+    "name": "Uttarkhan",
+    "slug": "uttarkhan",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "North Uttarkhan", "slug": "north-uttarkhan" },
+      { "name": "South Uttarkhan", "slug": "south-uttarkhan" },
+      { "name": "Moinartek", "slug": "moinartek" },
+      { "name": "Rajabari", "slug": "rajabari" },
+      { "name": "Mausaid", "slug": "mausaid" },
+      { "name": "Munda", "slug": "munda" }
+    ]
+  },
+  {
+    "name": "Dakshinkhan",
+    "slug": "dakshinkhan",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Dakshinkhan Main Area", "slug": "dakshinkhan-main-area" },
+      { "name": "Faidabad", "slug": "faidabad" },
+      { "name": "Mollartek", "slug": "mollartek" },
+      { "name": "Azampur", "slug": "azampur" },
+      { "name": "Chalabon", "slug": "chalabon" },
+      { "name": "Kholar Tek", "slug": "kholar-tek" }
+    ]
+  },
+  {
+    "name": "Ashkona–Kawla",
+    "slug": "ashkona-kawla",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Ashkona", "slug": "ashkona" },
+      { "name": "Kawla", "slug": "kawla" },
+      { "name": "Gawair", "slug": "gawair" }
+    ]
+  },
+  {
+    "name": "Khilkhet–Nikunja",
+    "slug": "khilkhet-nikunja",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Khilkhet", "slug": "khilkhet" },
+      { "name": "Nikunja 1", "slug": "nikunja-1" },
+      { "name": "Nikunja 2", "slug": "nikunja-2" },
+      { "name": "Kuratoli", "slug": "kuratoli" },
+      { "name": "Tanpara", "slug": "tanpara" }
+    ]
+  },
+  {
+    "name": "Kuril–Joar Sahara",
+    "slug": "kuril-joar-sahara",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Kuril", "slug": "kuril" },
+      { "name": "Joar Sahara", "slug": "joar-sahara" },
+      { "name": "Jagannathpur", "slug": "jagannathpur" },
+      { "name": "Kuril Bishwa Road", "slug": "kuril-bishwa-road" }
+    ]
+  },
+  {
+    "name": "Bashundhara Residential Area",
+    "slug": "bashundhara-residential-area",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Block A", "slug": "block-a" },
+      { "name": "Block B", "slug": "block-b" },
+      { "name": "Block C", "slug": "block-c" },
+      { "name": "Block D", "slug": "block-d" },
+      { "name": "Block E", "slug": "block-e" },
+      { "name": "Block F", "slug": "block-f" },
+      { "name": "Block G", "slug": "block-g" },
+      { "name": "Block H", "slug": "block-h" },
+      { "name": "Block I", "slug": "block-i" },
+      { "name": "Block J", "slug": "block-j" },
+      { "name": "Block K", "slug": "block-k" },
+      { "name": "Block L", "slug": "block-l" },
+      { "name": "Block M", "slug": "block-m" }
+    ]
+  },
+  {
+    "name": "Vatara–Nadda",
+    "slug": "vatara-nadda",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Vatara", "slug": "vatara" },
+      { "name": "Nadda", "slug": "nadda" },
+      { "name": "Solmaid", "slug": "solmaid" },
+      { "name": "Nurer Chala", "slug": "nurer-chala" },
+      { "name": "Kalachandpur", "slug": "kalachandpur" },
+      { "name": "Notun Bazar", "slug": "notun-bazar" }
+    ]
+  },
+  {
+    "name": "Shahjadpur–Baridhara",
+    "slug": "shahjadpur-baridhara",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Shahjadpur Block A", "slug": "shahjadpur-block-a" },
+      { "name": "Shahjadpur Block B", "slug": "shahjadpur-block-b" },
+      { "name": "Shahjadpur Block C", "slug": "shahjadpur-block-c" },
+      { "name": "Baridhara Residential Area", "slug": "baridhara-residential-area" },
+      { "name": "Baridhara DOHS", "slug": "baridhara-dohs" },
+      { "name": "Baridhara J Block", "slug": "baridhara-j-block" }
+    ]
+  },
+  {
+    "name": "Gulshan–Niketan",
+    "slug": "gulshan-niketan",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Gulshan 1", "slug": "gulshan-1" },
+      { "name": "Gulshan 2", "slug": "gulshan-2" },
+      { "name": "Niketan Block A", "slug": "niketan-block-a" },
+      { "name": "Niketan Block B", "slug": "niketan-block-b" },
+      { "name": "Niketan Block C", "slug": "niketan-block-c" },
+      { "name": "Niketan Block D", "slug": "niketan-block-d" },
+      { "name": "Korail", "slug": "korail" }
+    ]
+  },
+  {
+    "name": "Banani",
+    "slug": "banani",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Banani Main Area", "slug": "banani-main-area" },
+      { "name": "Banani DOHS", "slug": "banani-dohs" },
+      { "name": "Chairman Bari", "slug": "chairman-bari" },
+      { "name": "Kakoli", "slug": "kakoli" }
+    ]
+  },
+  {
+    "name": "Mohakhali",
+    "slug": "mohakhali",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Mohakhali Main Area", "slug": "mohakhali-main-area" },
+      { "name": "Mohakhali DOHS", "slug": "mohakhali-dohs" },
+      { "name": "Wireless Gate", "slug": "wireless-gate" },
+      { "name": "TB Gate", "slug": "tb-gate" },
+      { "name": "South Mohakhali", "slug": "south-mohakhali" },
+      { "name": "Amtoli", "slug": "amtoli" }
+    ]
+  },
+  {
+    "name": "Tejgaon",
+    "slug": "tejgaon",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Tejgaon Residential Area", "slug": "tejgaon-residential-area" },
+      { "name": "Tejgaon Industrial Area", "slug": "tejgaon-industrial-area" },
+      { "name": "Tejkunipara", "slug": "tejkunipara" },
+      { "name": "Farmgate", "slug": "farmgate" },
+      { "name": "Karwan Bazar", "slug": "karwan-bazar" }
+    ]
+  },
+  {
+    "name": "Sher-e-Bangla Nagar–Agargaon",
+    "slug": "sher-e-bangla-nagar-agargaon",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Sher-e-Bangla Nagar", "slug": "sher-e-bangla-nagar" },
+      { "name": "Agargaon", "slug": "agargaon" },
+      { "name": "Taltola", "slug": "taltola" },
+      { "name": "West Agargaon", "slug": "west-agargaon" }
+    ]
+  },
+  {
+    "name": "Nakhalpara–Monipuripara",
+    "slug": "nakhalpara-monipuripara",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "East Nakhalpara", "slug": "east-nakhalpara" },
+      { "name": "West Nakhalpara", "slug": "west-nakhalpara" },
+      { "name": "Monipuripara", "slug": "monipuripara" },
+      { "name": "Rajabazar", "slug": "rajabazar" },
+      { "name": "Indira Road", "slug": "indira-road" }
+    ]
+  },
+  {
+    "name": "Kafrul–Ibrahimpur",
+    "slug": "kafrul-ibrahimpur",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Kafrul", "slug": "kafrul" },
+      { "name": "Ibrahimpur", "slug": "ibrahimpur" },
+      { "name": "Bhashantek", "slug": "bhashantek" },
+      { "name": "Mirpur DOHS", "slug": "mirpur-dohs" },
+      { "name": "East Kafrul", "slug": "east-kafrul" }
+    ]
+  },
+  {
+    "name": "Mirpur",
+    "slug": "mirpur",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Mirpur 1", "slug": "mirpur-1" },
+      { "name": "Mirpur 2", "slug": "mirpur-2" },
+      { "name": "Mirpur 6", "slug": "mirpur-6" },
+      { "name": "Mirpur 7", "slug": "mirpur-7" },
+      { "name": "Mirpur 10", "slug": "mirpur-10" },
+      { "name": "Mirpur 11", "slug": "mirpur-11" },
+      { "name": "Mirpur 11.5", "slug": "mirpur-11-5" },
+      { "name": "Mirpur 12", "slug": "mirpur-12" },
+      { "name": "Mirpur 13", "slug": "mirpur-13" },
+      { "name": "Mirpur 14", "slug": "mirpur-14" }
+    ]
+  },
+  {
+    "name": "Pallabi",
+    "slug": "pallabi",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Pallabi Main Area", "slug": "pallabi-main-area" },
+      { "name": "Pallabi Extension", "slug": "pallabi-extension" },
+      { "name": "Palash Nagar", "slug": "palash-nagar" },
+      { "name": "Bawneabad", "slug": "bawneabad" },
+      { "name": "Kalshi", "slug": "kalshi" },
+      { "name": "Balur Math", "slug": "balur-math" }
+    ]
+  },
+  {
+    "name": "Rupnagar",
+    "slug": "rupnagar",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Rupnagar Residential Area", "slug": "rupnagar-residential-area" },
+      { "name": "Duaripara", "slug": "duaripara" },
+      { "name": "Arambagh Rupnagar", "slug": "arambagh-rupnagar" },
+      { "name": "Eastern Housing", "slug": "eastern-housing" }
+    ]
+  },
+  {
+    "name": "Kazipara–Shewrapara",
+    "slug": "kazipara-shewrapara",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "East Kazipara", "slug": "east-kazipara" },
+      { "name": "West Kazipara", "slug": "west-kazipara" },
+      { "name": "East Shewrapara", "slug": "east-shewrapara" },
+      { "name": "West Shewrapara", "slug": "west-shewrapara" },
+      { "name": "Senpara Parbata", "slug": "senpara-parbata" }
+    ]
+  },
+  {
+    "name": "Paikpara–Monipur",
+    "slug": "paikpara-monipur",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "North Paikpara", "slug": "north-paikpara" },
+      { "name": "South Paikpara", "slug": "south-paikpara" },
+      { "name": "Monipur", "slug": "monipur" },
+      { "name": "Pirerbag", "slug": "pirerbag" },
+      { "name": "Ahmed Nagar", "slug": "ahmed-nagar" }
+    ]
+  },
+  {
+    "name": "Darus Salam–Gabtoli",
+    "slug": "darus-salam-gabtoli",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Darus Salam", "slug": "darus-salam" },
+      { "name": "Gabtoli", "slug": "gabtoli" },
+      { "name": "Mazar Road", "slug": "mazar-road" },
+      { "name": "Golartek", "slug": "golartek" },
+      { "name": "Bagbari", "slug": "bagbari" },
+      { "name": "Gaidartek", "slug": "gaidartek" }
+    ]
+  },
+  {
+    "name": "Mohammadpur",
+    "slug": "mohammadpur",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Town Hall", "slug": "town-hall" },
+      { "name": "Tajmahal Road", "slug": "tajmahal-road" },
+      { "name": "Nurjahan Road", "slug": "nurjahan-road" },
+      { "name": "Salimullah Road", "slug": "salimullah-road" },
+      { "name": "Babor Road", "slug": "babor-road" },
+      { "name": "Humayun Road", "slug": "humayun-road" },
+      { "name": "Iqbal Road", "slug": "iqbal-road" },
+      { "name": "Asad Avenue", "slug": "asad-avenue" },
+      { "name": "Krishi Market", "slug": "krishi-market" },
+      { "name": "Mohammadia Housing", "slug": "mohammadia-housing" }
+    ]
+  },
+  {
+    "name": "Bosila–Dhaka Uddan",
+    "slug": "bosila-dhaka-uddan",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Bosila", "slug": "bosila" },
+      { "name": "Dhaka Uddan", "slug": "dhaka-uddan" },
+      { "name": "Chand Uddan", "slug": "chand-uddan" },
+      { "name": "Bosila Garden City", "slug": "bosila-garden-city" },
+      { "name": "Washpur", "slug": "washpur" }
+    ]
+  },
+  {
+    "name": "Adabor–Shyamoli",
+    "slug": "adabor-shyamoli",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Adabor", "slug": "adabor" },
+      { "name": "Shyamoli", "slug": "shyamoli" },
+      { "name": "Kallyanpur", "slug": "kallyanpur" },
+      { "name": "Shekhertek", "slug": "shekhertek" },
+      { "name": "Baitul Aman Housing", "slug": "baitul-aman-housing" }
+    ]
+  },
+  {
+    "name": "Lalmatia–Rayerbazar",
+    "slug": "lalmatia-rayerbazar",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "Lalmatia Block A", "slug": "lalmatia-block-a" },
+      { "name": "Lalmatia Block B", "slug": "lalmatia-block-b" },
+      { "name": "Lalmatia Block C", "slug": "lalmatia-block-c" },
+      { "name": "Lalmatia Block D", "slug": "lalmatia-block-d" },
+      { "name": "Lalmatia Block E", "slug": "lalmatia-block-e" },
+      { "name": "Lalmatia Block F", "slug": "lalmatia-block-f" },
+      { "name": "Lalmatia Block G", "slug": "lalmatia-block-g" },
+      { "name": "Rayerbazar", "slug": "rayerbazar" },
+      { "name": "Zafrabad", "slug": "zafrabad" }
+    ]
+  },
+  {
+    "name": "Badda",
+    "slug": "badda",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "North Badda", "slug": "north-badda" },
+      { "name": "Middle Badda", "slug": "middle-badda" },
+      { "name": "South Badda", "slug": "south-badda" },
+      { "name": "East Badda", "slug": "east-badda" },
+      { "name": "Badda DIT Project", "slug": "badda-dit-project" },
+      { "name": "East Merul Badda", "slug": "east-merul-badda" },
+      { "name": "West Merul Badda", "slug": "west-merul-badda" },
+      { "name": "Aftab Nagar", "slug": "aftab-nagar" }
+    ]
+  },
+  {
+    "name": "Rampura",
+    "slug": "rampura",
+    "city_corporation": "DNCC",
+    "sub_areas": [
+      { "name": "East Rampura", "slug": "east-rampura" },
+      { "name": "West Rampura", "slug": "west-rampura" },
+      { "name": "Ulon", "slug": "ulon" },
+      { "name": "East Hajipara", "slug": "east-hajipara" },
+      { "name": "West Hajipara", "slug": "west-hajipara" },
+      { "name": "Rampura WAPDA Road", "slug": "rampura-wapda-road" }
+    ]
+  },
+  {
+    "name": "Dhanmondi",
+    "slug": "dhanmondi",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Dhanmondi Residential Area", "slug": "dhanmondi-residential-area" },
+      { "name": "Jigatola", "slug": "jigatola" },
+      { "name": "Shankar", "slug": "shankar" },
+      { "name": "Sobhanbagh", "slug": "sobhanbagh" },
+      { "name": "Sukrabad", "slug": "sukrabad" }
+    ]
+  },
+  {
+    "name": "Kalabagan–Green Road",
+    "slug": "kalabagan-green-road",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Kalabagan", "slug": "kalabagan" },
+      { "name": "Kathalbagan", "slug": "kathalbagan" },
+      { "name": "Green Road", "slug": "green-road" },
+      { "name": "Panthapath", "slug": "panthapath" },
+      { "name": "Central Road", "slug": "central-road" }
+    ]
+  },
+  {
+    "name": "New Market–Nilkhet",
+    "slug": "new-market-nilkhet",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "New Market", "slug": "new-market" },
+      { "name": "Nilkhet", "slug": "nilkhet" },
+      { "name": "Elephant Road", "slug": "elephant-road" },
+      { "name": "Science Laboratory", "slug": "science-laboratory" },
+      { "name": "Katabon", "slug": "katabon" }
+    ]
+  },
+  {
+    "name": "Azimpur",
+    "slug": "azimpur",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Azimpur Main Area", "slug": "azimpur-main-area" },
+      { "name": "Palashi", "slug": "palashi" },
+      { "name": "Azimpur Colony", "slug": "azimpur-colony" },
+      { "name": "New Paltan Line", "slug": "new-paltan-line" }
+    ]
+  },
+  {
+    "name": "Shahbagh–Ramna",
+    "slug": "shahbagh-ramna",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Shahbagh", "slug": "shahbagh" },
+      { "name": "Ramna", "slug": "ramna" },
+      { "name": "Siddheshwari", "slug": "siddheshwari" },
+      { "name": "Kakrail", "slug": "kakrail" },
+      { "name": "Shantinagar", "slug": "shantinagar" },
+      { "name": "Segunbagicha", "slug": "segunbagicha" },
+      { "name": "Eskaton", "slug": "eskaton" }
+    ]
+  },
+  {
+    "name": "Moghbazar–Hatirjheel",
+    "slug": "moghbazar-hatirjheel",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Moghbazar", "slug": "moghbazar" },
+      { "name": "Hatirjheel", "slug": "hatirjheel" },
+      { "name": "Nayatola", "slug": "nayatola" },
+      { "name": "Modhubagh", "slug": "modhubagh" },
+      { "name": "Mouchak", "slug": "mouchak" }
+    ]
+  },
+  {
+    "name": "Malibagh–Shahjahanpur",
+    "slug": "malibagh-shahjahanpur",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Malibagh", "slug": "malibagh" },
+      { "name": "Malibagh Chowdhurypara", "slug": "malibagh-chowdhurypara" },
+      { "name": "Shahjahanpur", "slug": "shahjahanpur" },
+      { "name": "Shahjahanpur Railway Colony", "slug": "shahjahanpur-railway-colony" },
+      { "name": "Shantibagh", "slug": "shantibagh" }
+    ]
+  },
+  {
+    "name": "Banasree",
+    "slug": "banasree",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Block A", "slug": "block-a" },
+      { "name": "Block B", "slug": "block-b" },
+      { "name": "Block C", "slug": "block-c" },
+      { "name": "Block D", "slug": "block-d" },
+      { "name": "Block E", "slug": "block-e" },
+      { "name": "Block F", "slug": "block-f" },
+      { "name": "Block G", "slug": "block-g" },
+      { "name": "Block H", "slug": "block-h" },
+      { "name": "Block I", "slug": "block-i" },
+      { "name": "Block J", "slug": "block-j" },
+      { "name": "Block K", "slug": "block-k" },
+      { "name": "Block L", "slug": "block-l" },
+      { "name": "South Banasree", "slug": "south-banasree" }
+    ]
+  },
+  {
+    "name": "Khilgaon",
+    "slug": "khilgaon",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Khilgaon Main Area", "slug": "khilgaon-main-area" },
+      { "name": "Khilgaon Taltola", "slug": "khilgaon-taltola" },
+      { "name": "Sipahibagh", "slug": "sipahibagh" },
+      { "name": "Meradia", "slug": "meradia" },
+      { "name": "Nandipara", "slug": "nandipara" }
+    ]
+  },
+  {
+    "name": "Goran–Madartek",
+    "slug": "goran-madartek",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "North Goran", "slug": "north-goran" },
+      { "name": "South Goran", "slug": "south-goran" },
+      { "name": "East Goran", "slug": "east-goran" },
+      { "name": "West Goran", "slug": "west-goran" },
+      { "name": "Madartek", "slug": "madartek" }
+    ]
+  },
+  {
+    "name": "Basabo–Sabujbagh",
+    "slug": "basabo-sabujbagh",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "North Basabo", "slug": "north-basabo" },
+      { "name": "South Basabo", "slug": "south-basabo" },
+      { "name": "East Basabo", "slug": "east-basabo" },
+      { "name": "Sabujbagh", "slug": "sabujbagh" },
+      { "name": "Kadamtala", "slug": "kadamtala" },
+      { "name": "Mayakanon", "slug": "mayakanon" }
+    ]
+  },
+  {
+    "name": "Mugda–Manda",
+    "slug": "mugda-manda",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Mugda", "slug": "mugda" },
+      { "name": "North Manda", "slug": "north-manda" },
+      { "name": "South Manda", "slug": "south-manda" },
+      { "name": "Maniknagar", "slug": "maniknagar" },
+      { "name": "Mugdapara", "slug": "mugdapara" }
+    ]
+  },
+  {
+    "name": "Motijheel",
+    "slug": "motijheel",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Motijheel Commercial Area", "slug": "motijheel-commercial-area" },
+      { "name": "Dilkusha", "slug": "dilkusha" },
+      { "name": "Arambagh", "slug": "arambagh" },
+      { "name": "Fakirapool", "slug": "fakirapool" },
+      { "name": "Kamalapur", "slug": "kamalapur" },
+      { "name": "AGB Colony", "slug": "agb-colony" }
+    ]
+  },
+  {
+    "name": "Paltan",
+    "slug": "paltan",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Purana Paltan", "slug": "purana-paltan" },
+      { "name": "Naya Paltan", "slug": "naya-paltan" },
+      { "name": "Bijoy Nagar", "slug": "bijoy-nagar" },
+      { "name": "Topkhana", "slug": "topkhana" },
+      { "name": "Gulistan", "slug": "gulistan" }
+    ]
+  },
+  {
+    "name": "Jatrabari–Sayedabad",
+    "slug": "jatrabari-sayedabad",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Jatrabari", "slug": "jatrabari" },
+      { "name": "Sayedabad", "slug": "sayedabad" },
+      { "name": "Dhalpur", "slug": "dhalpur" },
+      { "name": "Mirhajirbagh", "slug": "mirhajirbagh" },
+      { "name": "Kazirbagh", "slug": "kazirbagh" }
+    ]
+  },
+  {
+    "name": "Donia–Shanir Akhra",
+    "slug": "donia-shanir-akhra",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Donia", "slug": "donia" },
+      { "name": "Shanir Akhra", "slug": "shanir-akhra" },
+      { "name": "Kajla", "slug": "kajla" },
+      { "name": "Rayerbagh", "slug": "rayerbagh" },
+      { "name": "Kutubkhali", "slug": "kutubkhali" }
+    ]
+  },
+  {
+    "name": "Matuail–Konapara",
+    "slug": "matuail-konapara",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Matuail", "slug": "matuail" },
+      { "name": "Konapara", "slug": "konapara" },
+      { "name": "Par Dogair", "slug": "par-dogair" },
+      { "name": "Matuail Medical Area", "slug": "matuail-medical-area" }
+    ]
+  },
+  {
+    "name": "Demra",
+    "slug": "demra",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Demra Main Area", "slug": "demra-main-area" },
+      { "name": "Sarulia", "slug": "sarulia" },
+      { "name": "Demra Staff Quarter", "slug": "demra-staff-quarter" },
+      { "name": "Dogair", "slug": "dogair" },
+      { "name": "Bamoil", "slug": "bamoil" },
+      { "name": "Hajinagar", "slug": "hajinagar" }
+    ]
+  },
+  {
+    "name": "Shyampur–Kadamtali",
+    "slug": "shyampur-kadamtali",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Shyampur", "slug": "shyampur" },
+      { "name": "Kadamtali", "slug": "kadamtali" },
+      { "name": "Faridabad", "slug": "faridabad" },
+      { "name": "Alambagh", "slug": "alambagh" },
+      { "name": "Muradpur", "slug": "muradpur" },
+      { "name": "Rasulpur Kadamtali", "slug": "rasulpur-kadamtali" }
+    ]
+  },
+  {
+    "name": "Jurain–Postogola",
+    "slug": "jurain-postogola",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "East Jurain", "slug": "east-jurain" },
+      { "name": "West Jurain", "slug": "west-jurain" },
+      { "name": "Jurain Railgate", "slug": "jurain-railgate" },
+      { "name": "Postogola", "slug": "postogola" },
+      { "name": "Dholaipar", "slug": "dholaipar" }
+    ]
+  },
+  {
+    "name": "Lalbagh–Hazaribagh",
+    "slug": "lalbagh-hazaribagh",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Lalbagh", "slug": "lalbagh" },
+      { "name": "Hazaribagh", "slug": "hazaribagh" },
+      { "name": "Islambagh", "slug": "islambagh" },
+      { "name": "Shaheed Nagar", "slug": "shaheed-nagar" },
+      { "name": "Kamrangirchar Bridge Area", "slug": "kamrangirchar-bridge-area" },
+      { "name": "Tannery Mor", "slug": "tannery-mor" }
+    ]
+  },
+  {
+    "name": "Chawkbazar–Bakshibazar",
+    "slug": "chawkbazar-bakshibazar",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Chawkbazar", "slug": "chawkbazar" },
+      { "name": "Bakshibazar", "slug": "bakshibazar" },
+      { "name": "Nazimuddin Road", "slug": "nazimuddin-road" },
+      { "name": "Urdu Road", "slug": "urdu-road" },
+      { "name": "Begum Bazar", "slug": "begum-bazar" }
+    ]
+  },
+  {
+    "name": "Bangshal–Kotwali",
+    "slug": "bangshal-kotwali",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Bangshal", "slug": "bangshal" },
+      { "name": "Kotwali", "slug": "kotwali" },
+      { "name": "Armanitola", "slug": "armanitola" },
+      { "name": "Nawabpur", "slug": "nawabpur" },
+      { "name": "Siddique Bazar", "slug": "siddique-bazar" },
+      { "name": "Islampur", "slug": "islampur" },
+      { "name": "Shankhari Bazar", "slug": "shankhari-bazar" }
+    ]
+  },
+  {
+    "name": "Sadarghat–Sutrapur",
+    "slug": "sadarghat-sutrapur",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Sadarghat", "slug": "sadarghat" },
+      { "name": "Sutrapur", "slug": "sutrapur" },
+      { "name": "Patuatuli", "slug": "patuatuli" },
+      { "name": "Babubazar", "slug": "babubazar" },
+      { "name": "Lakshmibazar", "slug": "lakshmibazar" }
+    ]
+  },
+  {
+    "name": "Wari–Narinda",
+    "slug": "wari-narinda",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Wari", "slug": "wari" },
+      { "name": "Narinda", "slug": "narinda" },
+      { "name": "Tikatuli", "slug": "tikatuli" },
+      { "name": "Rankin Street", "slug": "rankin-street" },
+      { "name": "Dhupkhola", "slug": "dhupkhola" },
+      { "name": "Gandaria", "slug": "gandaria" }
+    ]
+  },
+  {
+    "name": "Kamrangirchar",
+    "slug": "kamrangirchar",
+    "city_corporation": "DSCC",
+    "sub_areas": [
+      { "name": "Ashrafabad", "slug": "ashrafabad" },
+      { "name": "Alinagar", "slug": "alinagar" },
+      { "name": "Muslimbagh", "slug": "muslimbagh" },
+      { "name": "Nawabchar", "slug": "nawabchar" },
+      { "name": "Kholamora", "slug": "kholamora" }
+    ]
+  }
+]
