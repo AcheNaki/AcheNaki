@@ -1,4 +1,4 @@
-// <?php
+<!-- 
 
 // return [
 //     'paths' => ['api/*'],
@@ -12,8 +12,7 @@
 //     'exposed_headers' => ['Retry-After', 'X-RateLimit-Limit', 'X-RateLimit-Remaining'],
 //     'max_age' => 0,
 //     'supports_credentials' => false,
-// ];
-
+// ]; -->
 <?php
 
 return [
@@ -43,4 +42,5 @@ return [
 
     'supports_credentials' => false,
 ];
+
 
