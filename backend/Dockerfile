@@ -69,8 +69,12 @@ RUN { \
 # ============================================================
 COPY . .
 
-# Copy Composer dependencies from Stage 1
 COPY --from=composer /app/vendor ./vendor
+
+# Verify Laravel entry point exists
+RUN test -f /var/www/html/public/index.php || \
+    (echo "ERROR: Laravel public/index.php is missing!" && exit 1)
+
 
 
 # ============================================================
@@ -110,21 +114,19 @@ server {
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
-
     location ~ \.php$ {
-        try_files $uri =404;
-
         include fastcgi_params;
-
+    
         fastcgi_pass 127.0.0.1:9000;
-
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param DOCUMENT_ROOT $document_root;
-
+    
+        fastcgi_param SCRIPT_FILENAME /var/www/html/public$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT /var/www/html/public;
+    
         fastcgi_param HTTP_PROXY "";
-
+    
         fastcgi_read_timeout 60;
     }
+
 
     location ~ /\. {
         deny all;
