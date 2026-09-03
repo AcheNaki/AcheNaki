@@ -8,6 +8,7 @@ import type {
   DailyUtilityAnalytics,
   GasReportPayload,
   LiveStatusListItem,
+  LiveSummary,
   LocalityLiveStatus,
   ProjectionStatus,
   SubArea,
@@ -258,6 +259,12 @@ export async function getDashboard(signal?: AbortSignal): Promise<DashboardData>
   const response = await fetchFromApi("/dashboard", { headers: { Accept: "application/json" }, signal });
   if (!response.ok) throw await responseError(response);
   return dataFromResponse<DashboardData>(response);
+}
+
+export async function getLiveSummary(signal?: AbortSignal): Promise<LiveSummary> {
+  const response = await fetchFromApi("/live-summary", { headers: { Accept: "application/json" }, signal });
+  if (!response.ok) throw await responseError(response);
+  return dataFromResponse<LiveSummary>(response);
 }
 
 export async function getRecentlyResolvedElectricityEvents(

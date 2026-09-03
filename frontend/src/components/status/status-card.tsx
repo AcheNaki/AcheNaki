@@ -1,5 +1,5 @@
 import type { ElectricityProjectionStatus, GasProjectionStatus, LiveUtilityStatus, UtilityType } from "@/lib/api/types";
-import { confidenceLabel, evidenceSummary, formatDhakaTime, statusCopy } from "@/lib/dashboard/domain";
+import { confidenceLabel, evidenceSummary, formatDhakaTime, insufficientDataCopy, statusCopy } from "@/lib/dashboard/domain";
 
 const tones: Record<string, string> = {
   positive: "border-emerald-200 bg-emerald-50/70",
@@ -21,17 +21,21 @@ export function StatusCard({
   const copy = statusCopy(utility, status.status);
   const confidence = confidenceLabel(status.confidence, status.status === "MIXED");
   const evidence = evidenceSummary(status);
+  // The playful heading belongs to the empty state only; `copy.label` stays on screen and in
+  // the accessible name so the status itself is still stated plainly.
+  const empty = status.status === "INSUFFICIENT_DATA" ? insufficientDataCopy[utility] : null;
   return (
     <section className={`rounded-3xl border p-5 ${tones[copy.tone]}`} aria-label={`${utility === "ELECTRICITY" ? "Electricity" : "Gas"}: ${copy.label}`}>
       <div className="flex items-start gap-3">
         <span aria-hidden="true" className="grid size-10 shrink-0 place-items-center rounded-2xl bg-white/80 text-xl shadow-sm">{copy.icon}</span>
         <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-600">{utility === "ELECTRICITY" ? "Electricity" : "Gas"}</p>
-          <h3 className="mt-1 text-lg font-black tracking-tight text-slate-950">{copy.label}</h3>
+          <h3 className="mt-1 text-lg font-black tracking-tight text-slate-950">{empty ? empty.heading : copy.label}</h3>
+          {empty ? <p className="mt-1 text-sm font-semibold text-slate-600">{copy.label}</p> : null}
         </div>
       </div>
-      {!compact && status.status === "INSUFFICIENT_DATA" ? (
-        <p className="mt-4 text-sm leading-6 text-slate-600">We don&apos;t have enough recent community reports to estimate the current situation.</p>
+      {!compact && empty ? (
+        <p className="mt-4 text-sm leading-6 text-slate-600">{empty.prompt}</p>
       ) : null}
       {status.status !== "INSUFFICIENT_DATA" ? (
         <div className="mt-4 space-y-1 text-sm text-slate-700">

@@ -3,6 +3,7 @@ import type {
   DailyUtilityAnalytics,
   ElectricityProjectionStatus,
   GasProjectionStatus,
+  LiveSummary,
   LiveUtilityStatus,
   UtilityType,
 } from "@/lib/api/types";
@@ -28,6 +29,38 @@ export function statusCopy(utility: UtilityType, status: ElectricityProjectionSt
   return utility === "ELECTRICITY"
     ? electricityStatusCopy[status as ElectricityProjectionStatus]
     : gasStatusCopy[status as GasProjectionStatus];
+}
+
+// Only the "no recent evidence" state invites a report in a light-hearted way. Every real
+// status keeps the cautious wording in the status-copy tables above.
+export const insufficientDataCopy: Record<UtilityType, { heading: string; prompt: string }> = {
+  ELECTRICITY: {
+    heading: "কারেন্টের খবর এখনও ঝাপসা",
+    prompt: "খবরটা জানেন? তাহলে চুপ কেন - একটা report দিয়ে যান। 😄",
+  },
+  GAS: {
+    heading: "গ্যাসের খবর এখনও রহস্য",
+    prompt: "আপনার report না এলে এই রহস্যের তদন্ত এগোবে কীভাবে? 👀",
+  },
+};
+
+export interface LiveSummaryMetric {
+  key: string;
+  icon: string;
+  value: number;
+  label: string;
+}
+
+// The rolling window comes from the API so the card never hard-codes an evidence window the
+// backend could change.
+export function liveSummaryMetrics(summary: LiveSummary): LiveSummaryMetric[] {
+  return [
+    { key: "reports", icon: "📡", value: summary.reports, label: `reports in the last ${summary.window_minutes} minutes` },
+    { key: "localities", icon: "📍", value: summary.localities_updated, label: "localities updated" },
+    { key: "electricity", icon: "⚡", value: summary.electricity_issue_localities, label: "reporting electricity issues" },
+    { key: "gas", icon: "🔥", value: summary.gas_issue_localities, label: "reporting gas trouble" },
+    { key: "struggling", icon: "🚨", value: summary.currently_struggling_localities, label: "currently struggling" },
+  ];
 }
 
 export function confidenceLabel(confidence: ConfidenceLevel | null, mixed = false): string | null {

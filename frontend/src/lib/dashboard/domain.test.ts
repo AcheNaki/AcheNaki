@@ -7,13 +7,15 @@ import {
   formatDuration,
   formatLongestOutage,
   formatRelativeTime,
+  insufficientDataCopy,
+  liveSummaryMetrics,
   localityFullName,
   reportCountLabel,
   statusCopy,
   strugglingEmptyStateCopy,
   withUnknownGaps,
 } from "./domain.ts";
-import type { LiveUtilityStatus } from "../api/types.ts";
+import type { LiveSummary, LiveUtilityStatus } from "../api/types.ts";
 
 test("public status copy preserves insufficient and mixed uncertainty", () => {
   assert.equal(statusCopy("ELECTRICITY", "INSUFFICIENT_DATA").label, "Not enough recent reports");
@@ -144,6 +146,43 @@ test("the struggling empty state separates absent signals from absent data", () 
     "No recent community issue signals detected right now. Some areas may not have enough recent data.",
   );
   assert.ok(/not have enough recent data/i.test(strugglingEmptyStateCopy));
+});
+
+test("the empty-state invitation is per utility and never replaces a real status label", () => {
+  assert.equal(insufficientDataCopy.ELECTRICITY.heading, "কারেন্টের খবর এখনও ঝাপসা");
+  assert.equal(insufficientDataCopy.GAS.heading, "গ্যাসের খবর এখনও রহস্য");
+  assert.equal(insufficientDataCopy.ELECTRICITY.prompt, "খবরটা জানেন? তাহলে চুপ কেন - একটা report দিয়ে যান। 😄");
+  assert.equal(insufficientDataCopy.GAS.prompt, "আপনার report না এলে এই রহস্যের তদন্ত এগোবে কীভাবে? 👀");
+  // Real states keep the cautious wording; the playful copy is reachable only from the tables above.
+  assert.equal(statusCopy("ELECTRICITY", "UNAVAILABLE").label, "Likely loadshedding");
+  assert.equal(statusCopy("GAS", "LOW").label, "Low gas pressure reported");
+});
+
+test("the live summary renders backend counts and the backend's own window", () => {
+  const summary: LiveSummary = {
+    window_minutes: 30,
+    reports: 12,
+    localities_updated: 5,
+    electricity_issue_localities: 3,
+    gas_issue_localities: 2,
+    currently_struggling_localities: 4,
+    calculated_at: "2026-09-01T12:00:00.000000Z",
+  };
+
+  assert.deepEqual(
+    liveSummaryMetrics(summary).map((metric) => `${metric.icon} ${metric.value} ${metric.label}`),
+    [
+      "📡 12 reports in the last 30 minutes",
+      "📍 5 localities updated",
+      "⚡ 3 reporting electricity issues",
+      "🔥 2 reporting gas trouble",
+      "🚨 4 currently struggling",
+    ],
+  );
+  assert.equal(
+    liveSummaryMetrics({ ...summary, window_minutes: 45 })[0].label,
+    "reports in the last 45 minutes",
+  );
 });
 
 function liveStatus(overrides: Partial<LiveUtilityStatus>): LiveUtilityStatus {

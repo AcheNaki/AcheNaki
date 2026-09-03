@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\AreaLiveStatusesController;
 use App\Http\Controllers\Api\V1\AreaSubAreaController;
 use App\Http\Controllers\Api\V1\DashboardController;
 use App\Http\Controllers\Api\V1\LiveStatusListController;
+use App\Http\Controllers\Api\V1\LiveSummaryController;
 use App\Http\Controllers\Api\V1\LocationSearchController;
 use App\Http\Controllers\Api\V1\RecentlyResolvedElectricityEventsController;
 use App\Http\Controllers\Api\V1\SlugLocalityDailyAnalyticsController;
@@ -52,6 +53,7 @@ Route::prefix('v1')->name('api.v1.')->group(function (): void {
     Route::get('/live-statuses', LiveStatusListController::class)
         ->name('live-statuses.index');
     Route::get('/dashboard', DashboardController::class)->name('dashboard.show');
+    Route::get('/live-summary', LiveSummaryController::class)->name('live-summary.show');
     Route::get('/electricity-events/recently-resolved', RecentlyResolvedElectricityEventsController::class)
         ->name('electricity-events.recently-resolved.index');
 });

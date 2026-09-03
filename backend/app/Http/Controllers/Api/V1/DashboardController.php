@@ -73,9 +73,7 @@ class DashboardController extends Controller
 
     private function isIssue(string $utility, string $status): bool
     {
-        return $utility === UtilityType::ELECTRICITY->value
-            ? in_array($status, ['UNAVAILABLE', 'UNSTABLE', 'MIXED'], true)
-            : in_array($status, ['LOW', 'VERY_LOW', 'UNAVAILABLE', 'MIXED'], true);
+        return in_array($status, UtilityType::from($utility)->issueStatusValues(), true);
     }
 
     private function severity(string $utility, string $status): int

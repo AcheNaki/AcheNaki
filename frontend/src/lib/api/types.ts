@@ -194,6 +194,18 @@ export interface DashboardData {
   recent_changes: DashboardProjectionItem[];
 }
 
+// City-wide aggregate counts. Every field is a count of accepted reports or of distinct
+// localities — the payload carries no reporter, location or scoring detail.
+export interface LiveSummary {
+  window_minutes: number;
+  reports: number;
+  localities_updated: number;
+  electricity_issue_localities: number;
+  gas_issue_localities: number;
+  currently_struggling_localities: number;
+  calculated_at: string;
+}
+
 export interface RecentlyResolvedElectricityEvent {
   sub_area: {
     name: string;

@@ -8,6 +8,7 @@ import {
   getRecentlyResolvedElectricityEvents,
   getAreas,
   getLiveStatuses,
+  getLiveSummary,
   getLocalityLiveStatus,
   getSubAreas,
   submitUtilityReport,
@@ -149,6 +150,21 @@ test("dashboard reads use bounded cohesive public endpoints", async () => {
     return Response.json({ data: { calculated_at: "2026-09-01T12:00:00Z", fresh_projection_counts: { electricity: 1, gas: 1 }, struggling: [], recent_changes: [] } });
   };
   assert.equal((await getDashboard()).fresh_projection_counts.electricity, 1);
+});
+
+test("the live city summary is read from the Laravel API, never derived in the browser", async () => {
+  globalThis.fetch = async (input) => {
+    assert.equal(input, "http://api.test/api/v1/live-summary");
+    return Response.json({ data: { window_minutes: 30, reports: 12, localities_updated: 5, electricity_issue_localities: 3, gas_issue_localities: 2, currently_struggling_localities: 4, calculated_at: "2026-09-01T12:00:00.000000Z" } });
+  };
+  const summary = await getLiveSummary();
+  assert.equal(summary.reports, 12);
+  assert.equal(summary.currently_struggling_localities, 4);
+});
+
+test("a failing live summary surfaces a typed error instead of fabricated counts", async () => {
+  globalThis.fetch = async () => new Response(null, { status: 500 });
+  await assert.rejects(getLiveSummary(), (error: unknown) => error instanceof ApiError && error.kind === "server");
 });
 
 test("area status and resolved-event reads remain canonical and bounded", async () => {
