@@ -67,9 +67,22 @@ RUN { \
 # ============================================================
 # Copy Laravel application
 # ============================================================
-COPY . .
+# ============================================================
+# Copy Laravel application
+# ============================================================
+COPY . /var/www/html/
 
+# Verify Laravel files inside Docker image
+RUN echo "===== Laravel files =====" \
+    && ls -la /var/www/html \
+    && echo "===== public directory =====" \
+    && ls -la /var/www/html/public \
+    && echo "===== index.php =====" \
+    && ls -la /var/www/html/public/index.php
+
+# Copy Composer dependencies
 COPY --from=composer /app/vendor ./vendor
+
 
 # Verify Laravel entry point exists
 RUN test -f /var/www/html/public/index.php || \
