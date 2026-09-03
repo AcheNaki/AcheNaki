@@ -1,6 +1,6 @@
-# ================================
-# Stage 1: Install PHP dependencies
-# ================================
+# ============================================================
+# Stage 1: Install PHP dependencies with Composer
+# ============================================================
 FROM composer:2 AS composer
 
 WORKDIR /app
@@ -15,9 +15,9 @@ RUN composer install \
     --no-scripts
 
 
-# ================================
-# Stage 2: Production application
-# ================================
+# ============================================================
+# Stage 2: Production Laravel application
+# ============================================================
 FROM php:8.3-fpm-bookworm
 
 ENV APP_ENV=production
@@ -26,9 +26,9 @@ ENV APP_DEBUG=false
 WORKDIR /var/www/html
 
 
-# --------------------------------
+# ============================================================
 # Install system dependencies
-# --------------------------------
+# ============================================================
 RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
@@ -49,9 +49,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 
-# --------------------------------
+# ============================================================
 # PHP production configuration
-# --------------------------------
+# ============================================================
 RUN cp /usr/local/etc/php/php.ini-production \
     /usr/local/etc/php/php.ini
 
@@ -64,18 +64,18 @@ RUN { \
 } > /usr/local/etc/php/conf.d/opcache.ini
 
 
-# --------------------------------
+# ============================================================
 # Copy Laravel application
-# --------------------------------
+# ============================================================
 COPY . .
 
-# Copy Composer dependencies
+# Copy Composer dependencies from Stage 1
 COPY --from=composer /app/vendor ./vendor
 
 
-# --------------------------------
+# ============================================================
 # Laravel permissions
-# --------------------------------
+# ============================================================
 RUN mkdir -p \
     storage/framework/cache \
     storage/framework/sessions \
@@ -90,15 +90,14 @@ RUN mkdir -p \
         bootstrap/cache
 
 
-# --------------------------------
+# ============================================================
 # Nginx configuration
-# --------------------------------
+# ============================================================
 RUN rm -f /etc/nginx/sites-enabled/default
 
 RUN cat > /etc/nginx/conf.d/default.conf <<'EOF'
 server {
-    listen 8080;
-    listen [::]:8080;
+    listen 0.0.0.0:8080;
 
     server_name _;
 
@@ -134,9 +133,9 @@ server {
 EOF
 
 
-# --------------------------------
+# ============================================================
 # Supervisor configuration
-# --------------------------------
+# ============================================================
 RUN cat > /etc/supervisor/conf.d/supervisord.conf <<'EOF'
 [supervisord]
 nodaemon=true
@@ -166,39 +165,43 @@ stderr_logfile_maxbytes=0
 EOF
 
 
-# --------------------------------
-# Render uses PORT environment var
-# --------------------------------
+# ============================================================
+# Render startup script
+# ============================================================
 RUN cat > /usr/local/bin/start-render.sh <<'EOF'
 #!/bin/sh
 
 set -e
 
+# Render provides PORT at runtime.
+# Use 8080 locally if PORT is not provided.
 PORT="${PORT:-8080}"
 
-sed -i "s/listen 8080;/listen ${PORT};/g" \
+echo "Starting Laravel application on port ${PORT}"
+
+# Change Nginx from 8080 to Render's PORT
+sed -i \
+    "s/listen 0.0.0.0:8080;/listen 0.0.0.0:${PORT};/" \
     /etc/nginx/conf.d/default.conf
 
-sed -i "s/listen \\[::\\]:8080;/listen [::]:${PORT};/g" \
-    /etc/nginx/conf.d/default.conf
+# Verify Nginx configuration
+nginx -t
 
-exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+# Start Supervisor
+exec /usr/bin/supervisord \
+    -c /etc/supervisor/conf.d/supervisord.conf
 EOF
 
 RUN chmod +x /usr/local/bin/start-render.sh
 
 
-# --------------------------------
-# Health check
-# --------------------------------
-HEALTHCHECK --interval=30s \
-    --timeout=5s \
-    --start-period=30s \
-    --retries=3 \
-    CMD curl -f http://127.0.0.1:${PORT:-8080}/api/v1/health || exit 1
+# ============================================================
+# Expose default HTTP port
+# ============================================================
+EXPOSE 8080
 
 
-# --------------------------------
-# Start
-# --------------------------------
+# ============================================================
+# Start application
+# ============================================================
 CMD ["/usr/local/bin/start-render.sh"]
