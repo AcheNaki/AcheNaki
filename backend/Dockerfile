@@ -67,27 +67,29 @@ RUN { \
 # ============================================================
 # Copy Laravel application
 # ============================================================
-# ============================================================
-# Copy Laravel application
-# ============================================================
 COPY . /var/www/html/
 
-# Verify Laravel files inside Docker image
-RUN echo "===== Laravel files =====" \
-    && ls -la /var/www/html \
-    && echo "===== public directory =====" \
-    && ls -la /var/www/html/public \
-    && echo "===== index.php =====" \
-    && ls -la /var/www/html/public/index.php
 
+# ============================================================
 # Copy Composer dependencies
+# ============================================================
 COPY --from=composer /app/vendor ./vendor
 
 
-# Verify Laravel entry point exists
-RUN test -f /var/www/html/public/index.php || \
-    (echo "ERROR: Laravel public/index.php is missing!" && exit 1)
-
+# ============================================================
+# Verify Laravel installation
+# ============================================================
+RUN echo "========================================" \
+    && echo "Checking Laravel application..." \
+    && echo "========================================" \
+    && test -f /var/www/html/public/index.php \
+    && echo "OK: public/index.php exists" \
+    && test -f /var/www/html/artisan \
+    && echo "OK: artisan exists" \
+    && test -d /var/www/html/vendor \
+    && echo "OK: vendor directory exists" \
+    && php artisan --version \
+    && echo "========================================"
 
 
 # ============================================================
@@ -124,23 +126,26 @@ server {
 
     client_max_body_size 20M;
 
+    # Laravel routes
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
+
+    # PHP
     location ~ \.php$ {
         include fastcgi_params;
-    
+
         fastcgi_pass 127.0.0.1:9000;
-    
+
         fastcgi_param SCRIPT_FILENAME /var/www/html/public$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT /var/www/html/public;
-    
+
         fastcgi_param HTTP_PROXY "";
-    
+
         fastcgi_read_timeout 60;
     }
 
-
+    # Block hidden files
     location ~ /\. {
         deny all;
     }
@@ -188,21 +193,26 @@ RUN cat > /usr/local/bin/start-render.sh <<'EOF'
 
 set -e
 
-# Render provides PORT at runtime.
-# Use 8080 locally if PORT is not provided.
+# Render provides PORT automatically.
+# Use 8080 when running locally.
 PORT="${PORT:-8080}"
 
-echo "Starting Laravel application on port ${PORT}"
+echo "========================================"
+echo "Starting Laravel"
+echo "PORT=${PORT}"
+echo "========================================"
 
-# Change Nginx from 8080 to Render's PORT
+# Change Nginx from the default 8080
+# to Render's assigned PORT.
 sed -i \
     "s/listen 0.0.0.0:8080;/listen 0.0.0.0:${PORT};/" \
     /etc/nginx/conf.d/default.conf
 
-# Verify Nginx configuration
+echo "Checking Nginx configuration..."
 nginx -t
 
-# Start Supervisor
+echo "Starting Supervisor..."
+
 exec /usr/bin/supervisord \
     -c /etc/supervisor/conf.d/supervisord.conf
 EOF
@@ -211,7 +221,7 @@ RUN chmod +x /usr/local/bin/start-render.sh
 
 
 # ============================================================
-# Expose default HTTP port
+# Docker HTTP port
 # ============================================================
 EXPOSE 8080
 
