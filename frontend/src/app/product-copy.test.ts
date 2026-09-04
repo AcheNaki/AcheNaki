@@ -25,14 +25,21 @@ function assertContains(haystack: string, phrases: string[], where: string) {
 }
 
 test("the hero keeps its finalised copy, emoji and calls to action", () => {
+  // The eyebrow is split so the Bangla half can drop the English letter-spacing; the visible
+  // text must still read "DHAKA · কে আছে, কে নাই!" with a single space across the boundary.
+  assert.match(
+    homepage,
+    /DHAKA ·\{" "\} <span className="font-semibold normal-case tracking-normal">কে আছে, কে নাই!<\/span>/,
+    "The hero eyebrow lost its exact text or its Bangla tracking treatment.",
+  );
   assertContains(homepage, [
-    "DHAKA · কে আছে, কে নাই!",
     "Ache Naki? <span aria-hidden=\"true\">⚡🔥</span>",
     "কারেন্ট কই? ⚡ গ্যাস কই? 🔥 নাকি দুজনেই ছুটিতে?",
     "Check My Area 👀",
     "Report Now",
-    "পাড়ার খবর, অফিসিয়াল ঘোষণা না",
   ], "The hero");
+  // The disclaimer now lives only in the footer; the hero must not carry it again.
+  assert.ok(!homepage.includes("পাড়ার খবর"), "The hero disclaimer came back.");
 });
 
 test("replaced hero and disclaimer copy is not reintroduced", () => {
@@ -50,10 +57,15 @@ test("the confidence section keeps its four paragraphs and cautious closing clai
     "HOW CONFIDENCE WORKS",
     "Ache Naki? এত কিছু জানে কীভাবে? 👀",
     "এলাকার মানুষ যত বেশি recent আর একই ধরনের report দেয়, আমাদের confidence তত বাড়ে।",
-    "Report মিল না হলে confidence কমে যায় — কারণ ঢাকার কারেন্ট-গ্যাসও মাঝে মাঝে relationship status-এর মতো complicated. 😅",
+    "Report মিল না হলে confidence কমে যায় - কারণ ঢাকার কারেন্ট-গ্যাসও মাঝে মাঝে relationship status-এর মতো complicated. 😅",
     "Recent report না থাকলে আমরা সোজাসুজি বলি: “Not enough data.”",
-    "আর হ্যাঁ — এটা community-powered signal, কোনো official utility-provider confirmation না।",
+    "আর হ্যাঁ - এটা community-powered signal, কোনো official utility-provider confirmation না।",
   ], "The confidence section");
+  // These two paragraphs take a simple hyphen, not an em dash.
+  assert.ok(!homepage.includes("confidence কমে যায় —"), "The relationship-status paragraph must use a simple hyphen.");
+  assert.ok(!homepage.includes("আর হ্যাঁ —"), "The closing paragraph must use a simple hyphen.");
+  // The emoji closes the sentence inline; it must never be split into its own element or line.
+  assert.ok(homepage.includes("complicated. 😅</p>"), "😅 must stay attached to the sentence it closes.");
 });
 
 test("the live Dhaka card keeps its heading and never hard-codes a count", () => {
@@ -61,11 +73,19 @@ test("the live Dhaka card keeps its heading and never hard-codes a count", () =>
   assert.ok(liveCard.includes("liveSummaryMetrics"), "The live card must render backend-derived metrics.");
 });
 
+test("the removed supporting lines stay removed", () => {
+  for (const [file, removed] of [
+    [liveCard, "Community reports across Dhaka, counted by locality"],
+    [dashboard, "এলাকার মানুষের latest report"],
+  ] as const) {
+    assert.ok(!file.includes(removed), `Removed supporting copy came back: ${removed}`);
+  }
+});
+
 test("the your-area section keeps its heading, dynamic locality and report calls to action", () => {
   assertContains(dashboard, [
     "YOUR AREA",
     "আপনার এলাকার হালচাল 👀",
-    "এলাকার মানুষের latest report — অফিসিয়াল ঘোষণা না।",
     "এলাকার খবর দিন",
     "পুরো কাহিনি দেখুন →",
   ], "The your-area section");

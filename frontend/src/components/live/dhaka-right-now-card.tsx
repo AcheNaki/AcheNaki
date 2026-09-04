@@ -72,10 +72,6 @@ export function DhakaRightNowCard() {
       {metrics ? null : unavailable ? null : (
         <p role="status" className="sr-only">Loading the live Dhaka summary…</p>
       )}
-
-      <p className="mt-4 text-xs leading-5 text-slate-500">
-        Community reports across Dhaka, counted by locality — not utility-provider confirmation.
-      </p>
     </section>
   );
 }

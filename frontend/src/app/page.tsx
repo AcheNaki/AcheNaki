@@ -10,8 +10,11 @@ export default function Home() {
         {/* The live card sits beside the hero on wide screens and stacks under it below `lg`. */}
         <div className="grid items-start gap-8 py-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <section aria-labelledby="page-title" className="max-w-3xl">
+            {/* Bangla conjuncts read as broken at the eyebrow's English tracking, so the
+                Bangla half opts out of the letter-spacing while staying on the same line. */}
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">
-              DHAKA · কে আছে, কে নাই!
+              DHAKA ·{" "}
+              <span className="font-semibold normal-case tracking-normal">কে আছে, কে নাই!</span>
             </p>
 
             <h1
@@ -40,10 +43,6 @@ export default function Home() {
                 Report Now
               </Link>
             </div>
-
-            <p className="mt-5 text-sm text-slate-500">
-              পাড়ার খবর, অফিসিয়াল ঘোষণা না
-            </p>
           </section>
 
           <DhakaRightNowCard />
@@ -66,12 +65,10 @@ export default function Home() {
 
           <div className="mt-3 max-w-3xl space-y-3 text-sm leading-6 text-slate-700">
             <p>এলাকার মানুষ যত বেশি recent আর একই ধরনের report দেয়, আমাদের confidence তত বাড়ে।</p>
-            <p>
-              Report মিল না হলে confidence কমে যায় — কারণ ঢাকার কারেন্ট-গ্যাসও মাঝে মাঝে relationship
-              status-এর মতো complicated. 😅
-            </p>
+            {/* One source line: the emoji must stay inline with the sentence it closes. */}
+            <p>Report মিল না হলে confidence কমে যায় - কারণ ঢাকার কারেন্ট-গ্যাসও মাঝে মাঝে relationship status-এর মতো complicated. 😅</p>
             <p>Recent report না থাকলে আমরা সোজাসুজি বলি: “Not enough data.”</p>
-            <p>আর হ্যাঁ — এটা community-powered signal, কোনো official utility-provider confirmation না।</p>
+            <p>আর হ্যাঁ - এটা community-powered signal, কোনো official utility-provider confirmation না।</p>
           </div>
         </section>
       </div>
